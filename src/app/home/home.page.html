@@ -1,14 +1,89 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-toolbar color="primary">
+    
+    <div style="display:flex; float: right;" *ngFor="let us of user">
+      <p>Logged in as {{us.Fullname}}</p> 
+      <ion-button fill="clear" color="light" (click)="logout()">Logout</ion-button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content >
+  <div class="container">
+    <ion-col>
+      <ion-card color="primary">
+       
+          <ion-card-title >
+            <p >Users
+    <ion-icon name="contacts"></ion-icon><label>{{users}}</label></p> 
+          </ion-card-title>
+        
+      
+        <ion-card-content>
+         
+            
+          <ion-item>
+              <ion-label>
+                Show
+              </ion-label>
+              <ion-button expand="full" fill="clear" (click)="view()"><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+          </ion-item>
+       
+        
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card color="primary">
+       
+          <ion-card-title >
+            <p >Bookings
+      <ion-icon name="calendar"></ion-icon><label>{{books}}</label></p> 
+          </ion-card-title>
+        
+      
+        <ion-card-content>
+           
+            
+                <ion-item>
+                    <ion-label>
+                      Show
+                    </ion-label>
+                    <ion-button expand="full" fill="clear" (click)="bookings($event)"><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+                </ion-item>
+          
+              
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+ 
+  <ion-col >
+    <ion-card color="primary">
+     
+        <ion-card-title>
+          <p >Rooms
+    <ion-icon name="bed"></ion-icon><label>{{rooms}}</label></p> 
+        </ion-card-title>
+      
+    
+      <ion-card-content>
+    
+          
+    <ion-item>       
+                  <ion-label>
+                    Show
+                  </ion-label>
+                  <ion-button expand="full" fill="clear" (click)="gotorooms($event)"><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+              </ion-item>
+             <ion-item>
+                  <ion-label>
+                    Add
+                  </ion-label>
+                  <ion-button expand="full" fill="clear" (click)="add($event)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+              </ion-item>
+         
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</div>
 </ion-content>

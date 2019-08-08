@@ -1,1 +1,33 @@
 
+.container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background-image: url("../../assets/back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+.container >ion-col{
+    //margin: 5px; 
+    padding: 10px;
+}
+ion-card{
+   // border: rgb(26, 99, 148) solid 5px;
+   
+}
+ion-card-title{
+    font-size: 40px; 
+    background-color: rgb(26, 99, 148); 
+    padding: 10px;color: #fff;
+    display: flex
+}
+ion-card-title >p{
+ margin: auto;
+}
+ ion-item{
+    background-color: rgb(26, 99, 148);
+}
+ion-card-content{
+    background-color: rgb(26, 99, 148)
+}

@@ -1,0 +1,38 @@
+<ion-content>
+
+
+
+ 
+    
+      <div class="lable">
+          <p class="p_alrt"></p>
+        <div class="centerdiv">
+            <img src="http://logok.org/wp-content/uploads/2014/10/Hilton-Hotels-Logo.png" id="profilepic">
+         
+            <form>
+              <div>
+                  <input type="text" class="inputbox" placeholder="Username"  [(ngModel)]="email" name="email" >
+                  <br>
+                  <br>
+           
+                 <input type="password"  class="inputbox" placeholder="Password" [(ngModel)]="password" name="password" >
+                 <br>
+                  <br>
+    
+                  <div>
+                    <button type="submit" class="logbtn" (click)="Login()">LOGIN</button>
+                  </div>
+                  <br>
+              </div>
+            </form><BR>
+              
+        </div>
+    
+         
+      </div>
+      <!-- <div class="now">
+        <div class="mov"><button class="logbtn" (click)="Login()">Login Now</button></div></div>
+      </div> -->
+      
+
+</ion-content>

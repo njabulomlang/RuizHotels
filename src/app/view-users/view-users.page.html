@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngFor="let user of users" style="display: flex; flex-direction: row;  padding: 10px;">
+     <ion-item style="flex: 1;">
+        <img src="{{user.Profile_pic}}" style="border-radius: 50%" width="70" height="70" >   <div style="flex-direction: column"> 
+            <ion-item >{{user.Fullname}} </ion-item>
+            <ion-item lines="none">{{user.Cellphone}} </ion-item></div>
+     </ion-item>  
+         
+      
+        
+      </ion-list>
+</ion-content>

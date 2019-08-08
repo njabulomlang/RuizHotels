@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button (click)="reload()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Rooms</ion-title>
+    </ion-toolbar>
+   </ion-header>
+
+<ion-content>
+<ion-list *ngFor="let room of users">
+  <ion-item>
+    <img src="{{room.Pic}}" width="50" height="50" style="border-radius: 50%">
+    {{room.Room_name}}
+    {{room.Price}}
+    {{room.Hotelname}}
+    <ion-item *ngFor="let m of room.Feautures">
+      {{m}}
+    </ion-item>
+    <ion-button fill="clear" (click)="delete(room.key)" color="danger" style="float: right"> <ion-icon name="trash"></ion-icon> </ion-button>
+  </ion-item>
+
+</ion-list>
+</ion-content>
