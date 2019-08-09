@@ -6,11 +6,15 @@
 
 <ion-content>
                     <ion-list>
-                        <ion-item>
-                            <ion-input type="file" (change)="featuredPhotoSelected($event)"></ion-input>
-                          </ion-item>
+                      
                           <div *ngIf="room.pic" style="padding: 20px"> 
                             <img src="{{room.pic}}" alt="Room" width="200" height="150">
+                          </div>
+
+                          <div *ngIf="!room.pic" style="padding: 20px"> 
+                            <ion-item>
+                              <ion-input type="file" (change)="featuredPhotoSelected($event)"></ion-input>
+                            </ion-item>
                           </div>
                           
                         <ion-item>
