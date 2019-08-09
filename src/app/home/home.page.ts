@@ -26,6 +26,7 @@ export class HomePage {
   users;
   books;
   rooms;
+  roomDetails;
   constructor(private rout : Router, private popover: ModalController, private loadingController : LoadingController) {
     this.presentLoading();
     // this.ref.on('value', resp => {
@@ -83,16 +84,16 @@ export class HomePage {
     });
      popover.present();
   }
-  async gotorooms(){
-    this.presentLoading();
-    const popover = await this.popover.create({
-      component: ViewRoomsPage,
-      componentProps: {
-        custom_id : this.value
-      },
-    
+ gotorooms(id){
+  this.refRooms.orderByKey().equalTo(id).on('value', resp => {
+    this.rooms = snapshotToArray(resp);
+    resp.forEach(element => {
+       this.roomDetails = element.val();
+       console.log(this.roomDetails);
+       
     });
-     popover.present();
+ 
+    })
   }
   logout(){
     this.presentLoading();

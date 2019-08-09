@@ -34,14 +34,16 @@ ion-card-content{
 #accordionSidebar{
     width: 300px;
     background-color: rgb(236, 230, 230);
-    margin-right: 2%;
     height: 20%;
     //display: flex;
    // color: #fff;
 }
 .row{
-   // display: flex;
-   margin-right: 0.5%;
+    display: flex;
+  // margin-right: 0.5%;
+  // background-color: aquamarine;
+   width: 100%;
+ 
 }
 .container-fluid{
     display:flex
@@ -51,4 +53,7 @@ ion-card-content{
 }
 #details{
     height: 88vh;
+}
+.col-lg-12{
+    width: 100%;
 }
