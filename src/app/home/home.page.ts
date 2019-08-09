@@ -28,22 +28,22 @@ export class HomePage {
   rooms;
   constructor(private rout : Router, private popover: ModalController, private loadingController : LoadingController) {
     this.presentLoading();
-    this.ref.on('value', resp => {
-      this.users = snapshotToArray(resp).length;
-        console.log(this.users);
-      })
+    // this.ref.on('value', resp => {
+    //   this.users = snapshotToArray(resp).length;
+    //     console.log(this.users);
+    //   })
     this.refUser.child('users').orderByChild('UID').equalTo(this.userID).on('value', resp =>{
      this.user = snapshotToArray(resp);
       console.log(this.user);
       
-    });
-      this.refBookings.on('value', resp => {
-        this.books = snapshotToArray(resp).length;
-          console.log(this.books);
+     });
+    //   this.refBookings.on('value', resp => {
+    //     this.books = snapshotToArray(resp).length;
+    //       console.log(this.books);
   
-        })
+    //     })
         this.refRooms.on('value', resp => {
-          this.rooms = snapshotToArray(resp).length;
+          this.rooms = snapshotToArray(resp);
             console.log(this.rooms);
     
           })

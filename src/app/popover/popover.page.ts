@@ -3,7 +3,7 @@ import { room } from '../model/room';
 import *as firebase from 'firebase';
 import { snapshotToArray } from '../environment';
 import { Router } from '@angular/router';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController, ModalController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -20,7 +20,7 @@ export class PopoverPage implements OnInit {
   ref = firebase.database().ref('rooms/');
   storageRef = firebase.storage().ref();
 
-  constructor(private router : Router, public loadingController: LoadingController, public alertController: AlertController) {
+  constructor(private router : Router, public loadingController: LoadingController, public alertController: AlertController,public modalCtrl: ModalController) {
 
     
 
@@ -80,7 +80,9 @@ export class PopoverPage implements OnInit {
        this.room.location = '',
        this.room.price = null;
        this.room.pic = 0;
-       this.router.navigateByUrl("/home");
+       this.modalCtrl.dismiss({
+        'dismissed': true
+      });
       }
       async presentLoading() {
         const loading = await this.loadingController.create({
@@ -93,5 +95,5 @@ export class PopoverPage implements OnInit {
     
         console.log('Loading dismissed!');
       }
-    
+   
 }

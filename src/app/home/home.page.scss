@@ -31,3 +31,24 @@ ion-card-title >p{
 ion-card-content{
     background-color: rgb(26, 99, 148)
 }
+#accordionSidebar{
+    width: 300px;
+    background-color: rgb(236, 230, 230);
+    margin-right: 2%;
+    height: 20%;
+    //display: flex;
+   // color: #fff;
+}
+.row{
+   // display: flex;
+   margin-right: 0.5%;
+}
+.container-fluid{
+    display:flex
+}
+.container-flui{
+    margin:7px;
+}
+#details{
+    height: 88vh;
+}
