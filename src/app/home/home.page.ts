@@ -27,6 +27,20 @@ export class HomePage {
   books;
   rooms;
   roomDetails;
+  Description;
+Feautures=[];
+Hotelname;
+Location;
+Pic;
+Price;
+Room_name;
+Room_size;
+count;
+countUsers;
+bookedBy;
+RoomArry;
+UserArry;
+Profile_pic; Fullname; Cellphone ; Bio;
   constructor(private rout : Router, private popover: ModalController, private loadingController : LoadingController) {
     this.presentLoading();
     // this.ref.on('value', resp => {
@@ -35,20 +49,26 @@ export class HomePage {
     //   })
     this.refUser.child('users').orderByChild('UID').equalTo(this.userID).on('value', resp =>{
      this.user = snapshotToArray(resp);
-      console.log(this.user);
+     // console.log(this.user);
       
      });
-    //   this.refBookings.on('value', resp => {
-    //     this.books = snapshotToArray(resp).length;
-    //       console.log(this.books);
+    
+       this.refBookings.on('value', resp => {
+       this.books = snapshotToArray(resp).length;
+         // console.log(this.books);
   
-    //     })
+        })
         this.refRooms.on('value', resp => {
           this.rooms = snapshotToArray(resp);
-            console.log(this.rooms);
+          //  console.log(this.rooms);
+            this.count = snapshotToArray(resp).length;
     
           })
+          this.ref.on('value', resp => {
+              this.users = snapshotToArray(resp);
+              this.countUsers = snapshotToArray(resp).length;
       
+            })
   }
   async view(){
     this.presentLoading();
@@ -73,6 +93,12 @@ export class HomePage {
      popover.present();
   }
 
+  viewRooms(item){
+    console.log(item);
+    this.RoomArry = item;
+    this.UserArry = [];
+  }
+
   async bookings(ev: Event){
     this.presentLoading();
     const popover = await this.popover.create({
@@ -84,16 +110,30 @@ export class HomePage {
     });
      popover.present();
   }
- gotorooms(id){
-  this.refRooms.orderByKey().equalTo(id).on('value', resp => {
-    this.rooms = snapshotToArray(resp);
-    resp.forEach(element => {
-       this.roomDetails = element.val();
-       console.log(this.roomDetails);
-       
-    });
- 
-    })
+ gotorooms(pic, hotel,name,loc,size, feat,price,descr){
+  this.UserArry = [];
+  this.Pic = pic;
+  this.Hotelname = hotel;
+  this.Room_name = name;
+  this.Location = loc;
+  this.Room_size = size;
+  this.Feautures = feat;
+  this.Price = price;
+  this.Description = descr;
+
+  this.refUser.child('bookings').orderByChild('Room').equalTo(name).on('value', resp =>{
+   this.bookedBy = snapshotToArray(resp); 
+     
+  })
+  
+  }
+  userDetails(pic,name,cell,bio){
+    this.RoomArry=[];
+    this.Profile_pic = pic;
+    this.Fullname = name;
+    this.Cellphone = cell;
+    this.Bio = bio;
+  
   }
   logout(){
     this.presentLoading();
@@ -105,6 +145,10 @@ export class HomePage {
     });
 
   }
+  allUsers(item){
+    this.RoomArry=[];
+     this.UserArry = item;
+  }
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait..',
@@ -114,6 +158,6 @@ export class HomePage {
 
     const { role, data } = await loading.onDidDismiss();
 
-    console.log('Loading dismissed!');
+    //console.log('Loading dismissed!');
   }
 }
