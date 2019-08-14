@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewRoomsPageModule } from './view-rooms/view-rooms.module';
 import { ViewUsersPageModule } from './view-users/view-users.module';
 import { ViewBookingsPageModule } from './view-bookings/view-bookings.module';
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +30,9 @@ import { AppRoutingModule } from './app-routing.module';
      ViewBookingsPageModule,
      ViewUsersPageModule,
      ViewBookingsPageModule,
-     ViewRoomsPageModule
+     ViewRoomsPageModule,
+     ReactiveFormsModule,
+     FormsModule
     
     ],
     

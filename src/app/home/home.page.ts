@@ -41,6 +41,7 @@ bookedBy;
 RoomArry;
 UserArry;
 Profile_pic; Fullname; Cellphone ; Bio;
+Key;
   constructor(private rout : Router, private popover: ModalController, private loadingController : LoadingController) {
     this.presentLoading();
     // this.ref.on('value', resp => {
@@ -98,7 +99,19 @@ Profile_pic; Fullname; Cellphone ; Bio;
     this.RoomArry = item;
     this.UserArry = [];
   }
-
+  delete(key){
+    firebase.database().ref('rooms/'+key).remove();
+    //this.RoomArry=[];
+    this.Pic = '';
+    this.Hotelname = '';
+    this.Room_name = '';
+    this.Location = '';
+    this.Room_size = '';
+    this.Feautures = null;
+    this.Price = null;
+    this.Description = '';
+    this.Key = '';
+  }
   async bookings(ev: Event){
     this.presentLoading();
     const popover = await this.popover.create({
@@ -110,7 +123,7 @@ Profile_pic; Fullname; Cellphone ; Bio;
     });
      popover.present();
   }
- gotorooms(pic, hotel,name,loc,size, feat,price,descr){
+ gotorooms(pic, hotel,name,loc,size, feat,price,descr,key){
   this.UserArry = [];
   this.Pic = pic;
   this.Hotelname = hotel;
@@ -120,6 +133,7 @@ Profile_pic; Fullname; Cellphone ; Bio;
   this.Feautures = feat;
   this.Price = price;
   this.Description = descr;
+  this.Key = key;
 
   this.refUser.child('bookings').orderByChild('Room').equalTo(name).on('value', resp =>{
    this.bookedBy = snapshotToArray(resp); 

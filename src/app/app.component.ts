@@ -35,7 +35,7 @@ export class AppComponent {
 
   catchUsers(){
     firebase.auth().onAuthStateChanged((user)=>{
-      if(user.uid){
+      if(user){
         this.router.navigateByUrl("/home")
       } else{
         this.router.navigateByUrl("/login")

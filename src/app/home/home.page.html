@@ -114,9 +114,7 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+          
 
           <!-- Topbar Search -->
           <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -131,42 +129,12 @@
           </form> -->
 
           <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
 
             <!-- Nav Item - Alerts -->
          
 
          
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngFor="let u of user">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{u.Fullname}}</span>
-                <img class="img-profile rounded-circle" src="{{u.Profile_pic}}" width="50" height="50">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
 
           </ul>
 
@@ -187,11 +155,11 @@
             <hr class="sidebar-divider my-0">
       
            
-            <div class="nav-item active">
-              <a class="nav-link" href="index.html">
+         
+              <h3>
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-            </div>
+                <span>Dashboard</span></h3>
+        
       
             <hr class="sidebar-divider">
       
@@ -201,7 +169,7 @@
       
             <li class="nav-item">
               <ion-button fill="clear" (click)="viewRooms(rooms)">
-                <i class="fas fa-eye"></i>
+                  <i class="fas fa-bed"></i>
                 <span>Rooms <ion-badge style="margin-left: 5%;" color="primary">{{count}}</ion-badge></span>
               </ion-button>
             </li>
@@ -234,11 +202,11 @@
          
       
       
-            <!-- <li class="nav-item">
-              <ion-button fill="clear" href="tables.html">
-                <i class="fas fa-calendar-check"></i>
-                <span>Bookings <ion-badge style="margin-left: 5%;" color="primary">{{books}}</ion-badge></span></ion-button>
-            </li> -->
+            <li class="nav-item">
+              <ion-button fill="clear" (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span></ion-button>
+            </li>
       
             <hr class="sidebar-divider d-none d-md-block">
       
@@ -282,7 +250,7 @@
                     </div>
 
                   <div><ion-button fill="clear" style="float: right;flex: 1; color: white; margin-top: -80px" 
-                    (click)="gotorooms(us.Pic, us.Hotelname, us.Room_name, us.Location, us.Room_size, us.Feautures, us.Price, us.Description)">View</ion-button></div> 
+                    (click)="gotorooms(us.Pic, us.Hotelname, us.Room_name, us.Location, us.Room_size, us.Feautures, us.Price, us.Description, us.key)">View</ion-button></div> 
                 </div>
               </div>
 
@@ -349,9 +317,20 @@
                     
                   </div>
                 </div>
+                <ion-button fill="clear" (click)="delete(Key)" color="danger" style="float: right"> <ion-icon name="trash"></ion-icon> </ion-button>
               </div>
 
-           
+              <div class="card shadow mb-4" id="details" *ngIf="Profile_pic">
+                  <div class="card-header py-3">
+                    <h4 class="m-0 font-weight-bold text-primary">Detailed information</h4>
+                  </div>
+                  <div class="card-body" >
+                    <img src="{{Profile_pic}}" height="400" width="100%">
+                    <h6>Full name: {{Fullname}}</h6>
+                    <h6>Cellphone: {{Cellphone}}</h6>
+                    <h6>Bio: {{Bio}}</h6>
+                  </div>
+                </div>
               <div class="card shadow mb-4" id="details" *ngIf="!Pic">
                 <div class="card-header py-3">
                   <h4 class="m-0 font-weight-bold text-primary">Detailed information</h4>

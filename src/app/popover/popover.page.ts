@@ -5,6 +5,7 @@ import { snapshotToArray } from '../environment';
 import { Router } from '@angular/router';
 import { LoadingController, AlertController, ModalController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-popover',
@@ -16,13 +17,15 @@ export class PopoverPage implements OnInit {
   room = {} as room;
   rooms;
   users;
+  name;
    //selectedFile = null;
   ref = firebase.database().ref('rooms/');
-  storageRef = firebase.storage().ref();
+  storageRef = firebase.storage().ref(); 
 
-  constructor(private router : Router, public loadingController: LoadingController, public alertController: AlertController,public modalCtrl: ModalController) {
 
-    
+  constructor(private router : Router, public loadingController: LoadingController, public alertController: AlertController,public modalCtrl: ModalController,
+    public formBuilder: FormBuilder) {
+    //this.room.name = new FormControl('Input required', Validators.required);
 
     this.ref.on('value', resp => {
       this.rooms = snapshotToArray(resp);
@@ -34,10 +37,7 @@ export class PopoverPage implements OnInit {
 
 
   ngOnInit() {
-    if(this.room.price.toLocaleString().length>4){
-      console.log('never seen such number');
-      
-    } 
+
   }
 
     featuredPhotoSelected(event: any){
@@ -56,13 +56,21 @@ export class PopoverPage implements OnInit {
        });
      });
      }
-
+     async presentAlert() {
+      const alert = await this.alertController.create({
+        header: 'Error!',
+        subHeader: 'Invalid inputs',
+        message: 'Your inputs must be valid',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    }
   addRoom(room : room){
     this.presentLoading();
-     //this.upload()
-    //this.featuredPhotoSelected(event);
+    if(room.price.toString().length<4 || room.name!='' || room.hotelName!='' || room.location!='' || room.pic!='') {     
         let newUser = this.ref.push();
-      newUser.set({
+        newUser.set({
         Room_name: room.name,
         Hotelname: room.hotelName,
         Feautures: room.feautures,
@@ -82,7 +90,9 @@ export class PopoverPage implements OnInit {
        this.room.pic = 0;
        this.modalCtrl.dismiss({
         'dismissed': true
-      });
+      });} else {
+        this.presentAlert();
+      }
       }
       async presentLoading() {
         const loading = await this.loadingController.create({
@@ -93,7 +103,7 @@ export class PopoverPage implements OnInit {
     
         const { role, data } = await loading.onDidDismiss();
     
-        console.log('Loading dismissed!');
+        //console.log('Loading dismissed!');
       }
    
 }
