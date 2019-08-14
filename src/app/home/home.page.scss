@@ -1,207 +1,209 @@
+.container-fluid{
+	display: flex;
+	height: 100%;
+	width: 100%;
+///	background-color: bisque
+}
+
+ion-card-title{
+    font-size: 40px; 
+    background-color: rgb(26, 99, 148); 
+    padding: 10px;color: #fff;
+    display: flex
+}
+ion-card-title >p{
+ margin: auto;
+}
+ ion-item{
+    background-color: rgb(26, 99, 148);
+}
+ion-card-content{
+    background-color: rgb(26, 99, 148)
+}
+
+.row{
+    //display: flex;
+  // margin-right: 2%;
+   background-color: aquamarine;
+   width: 100%;
+  height: 100%;
+  // flex-direction: column
+ 
+}
+.flex-card{
+	display: flex;
+	float: right;
+	flex-direction: column;
+	
+	//left: 500px;
+	//margin-top: -80px;
+
+}
+.container-fluid{
+    display:flex
+}
+.container-flui{
+    margin:7px;
+}
+ #details{
+	// display: flex;
+	height: 88vh;
+	width: 900px;
+	margin-left: -600px;
+	margin-top: -480px;
+}
+.col-lg-12{
+    width: 50%;
+   margin-bottom: 20px;
+   
+   
+}
+
+// *{
+// 	margin: 0;
+// 	padding: 0;
+// 	font-family: sans-serif;
+// }
 
 // .container{
+// 	width: 100%;
+// 	height: 100%;
+//     background: #42455a;
 //     display: flex;
-//     height: 100%;
-//     flex-direction: column;
-//     background-image: url("../../assets/back.jpg");
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     object-fit: cover;
 // }
-// .container >ion-col{
-//     //margin: 5px; 
-//     padding: 10px;
+
+// .menu ul{
+// 	display: inline-flex;
+// 	margin: 40px;
 // }
-// ion-card{
-//    // border: rgb(26, 99, 148) solid 5px;
-   
+// .menu ul li{
+// 	list-style: none;
+// 	margin: 0 20px;
+// 	color: #b2b1b1;
+// 	cursor: pointer;
+
 // }
-// ion-card-title{
-//     font-size: 40px; 
-//     background-color: rgb(26, 99, 148); 
-//     padding: 10px;color: #fff;
-//     display: flex
+// .logo img{
+// 	width: 30px;
+// 	margin-top: -7px;
+// 	margin-right: 48px;
+
 // }
-// ion-card-title >p{
-//  margin: auto;
+// .active{
+// 	color: #19dafa !important;
 // }
-//  ion-item{
-//     background-color: rgb(26, 99, 148);
+// .signout-btn{
+// 	top: 40px;
+// 	right: 80px;
+// 	position: absolute;;
+// 	text-decoration: none;
+// 	color: #fff;
 // }
-// ion-card-content{
-//     background-color: rgb(26, 99, 148)
+
+// .signout-btn{
+// 	top: 30px;
+// 	right: 80px;
+// 	position: absolute;
+// 	text-decoration: none;
+// 	color: #fff;
 // }
-// #accordionSidebar{
-//     width: 300px;
-//     background-color: rgb(236, 230, 230);
-//     height: 20%;
-//     //display: flex;
-//    // color: #fff;
+// .logout-btn{
+// 	top: 40px;
+// 	right: 80px;
+// 	position: absolute;
+// 	text-decoration: none;
+// 	color: #fff;
+// 	border-radius: 20px;
+// 	border: 5px solid transparent;
+// 	background-color: black;
+// 	background-origin: border-box;
+// 	background-clip: content-box, border-box;
+
+
 // }
-// .row{
-//     display: flex;
-//   // margin-right: 2%;
-//   // background-color: aquamarine;
-//    width: 100%;
- 
+// .logout-btn span{
+// 	display: block;
+// 	padding: 5px 20px;
+
 // }
-// .container-fluid{
-//     display:flex
+
+// .banner{
+// width: 80%;
+// height: 70%;
+// top: 25%;
+// left: 130px;
+// position: absolute;
+// color: #fff;
 // }
-// .container-flui{
-//     margin:7px;
+
+// .app{
+// 	width: 50%;
+// 	float: left;
+
+
 // }
-// #details{
-//     height: 88vh;
+// .app h1{
+// 	font-size: 43px;
+// 	width: 640px;
+// 	position: relative;
+// 	margin-left: 40px;
+// }
+
+// .app p{
+// 	font-size: 15px;
+// 	width: 650px;
+// 	position: relative;
+// 	margin: 30px 0 30px 40px;
+// 	line-height: 25px;
+// 	color: #919191;
+// }
+// .picture{
+// 	width: 50%;
+// 	float: right;
+// }
+// .picture img{
+// 	width: 100%;
+// 	margin-top: -20px;
+// 	padding-left: 50px;
+// }
+// .add-room{
+// 	top: 250px;
+// 	left: 80px;
+// 	position: absolute;
+// 	text-decoration: none;
+// 	color: black;
+// 	border-radius: 20px;
+// 	border: 5px solid transparent;
+// 	background-color: white;
+// 	background-origin: border-box;
+// 	background-clip: content-box, border-box;
+
+
+// }
+// .add-room span{
+// 	display: block;
+// 	padding: 10px 25px;
+
+// }
+
+// .quick{
+// 	left: 0;
+// 	bottom: 0;
+// 	position: absolute;
+// 	background-color: white;
+
+// }
+// .quick ul{
+// 	display: inline-flex;
+// 	margin: 25px auto;
+// 	text-align: center;
+	
 // }
 // .col-lg-12{
 //     width: 100%;
 //   //  margin-left: 3%;
+//   margin-bottom: 2%
 // }
-
-*{
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-}
-
-.container{
-	width: 100%;
-	height: 100%;
-    background: #42455a;
-    display: flex;
-}
-
-.menu ul{
-	display: inline-flex;
-	margin: 40px;
-}
-.menu ul li{
-	list-style: none;
-	margin: 0 20px;
-	color: #b2b1b1;
-	cursor: pointer;
-
-}
-.logo img{
-	width: 30px;
-	margin-top: -7px;
-	margin-right: 48px;
-
-}
-.active{
-	color: #19dafa !important;
-}
-.signout-btn{
-	top: 40px;
-	right: 80px;
-	position: absolute;;
-	text-decoration: none;
-	color: #fff;
-}
-
-.signout-btn{
-	top: 30px;
-	right: 80px;
-	position: absolute;
-	text-decoration: none;
-	color: #fff;
-}
-.logout-btn{
-	top: 40px;
-	right: 80px;
-	position: absolute;
-	text-decoration: none;
-	color: #fff;
-	border-radius: 20px;
-	border: 5px solid transparent;
-	background-color: black;
-	background-origin: border-box;
-	background-clip: content-box, border-box;
-
-
-}
-.logout-btn span{
-	display: block;
-	padding: 5px 20px;
-
-}
-
-.banner{
-width: 80%;
-height: 70%;
-top: 25%;
-left: 130px;
-position: absolute;
-color: #fff;
-}
-
-.app{
-	width: 50%;
-	float: left;
-
-
-}
-.app h1{
-	font-size: 43px;
-	width: 640px;
-	position: relative;
-	margin-left: 40px;
-}
-
-.app p{
-	font-size: 15px;
-	width: 650px;
-	position: relative;
-	margin: 30px 0 30px 40px;
-	line-height: 25px;
-	color: #919191;
-}
-.picture{
-	width: 50%;
-	float: right;
-}
-.picture img{
-	width: 100%;
-	margin-top: -20px;
-	padding-left: 50px;
-}
-.add-room{
-	top: 250px;
-	left: 80px;
-	position: absolute;
-	text-decoration: none;
-	color: black;
-	border-radius: 20px;
-	border: 5px solid transparent;
-	background-color: white;
-	background-origin: border-box;
-	background-clip: content-box, border-box;
-
-
-}
-.add-room span{
-	display: block;
-	padding: 10px 25px;
-
-}
-
-.quick{
-	left: 0;
-	bottom: 0;
-	position: absolute;
-	background-color: white;
-
-}
-.quick ul{
-	display: inline-flex;
-	margin: 25px auto;
-	text-align: center;
-	
-}
-.quick ul li{
-	list-style: none;
-	margin: 0 50px;
-	cursor: pointer;
-	
-}
+// .navbar-nav{
+//     height: 5vh;
+// }

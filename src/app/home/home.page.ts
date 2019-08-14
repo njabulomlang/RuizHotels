@@ -112,15 +112,26 @@ Key;
     this.Description = '';
     this.Key = '';
   }
-  async bookings(ev: Event){
+  async userDetails(pic,name,cell,bio){
+  
+    let obj1 ={
+     pic: pic ,
+      name: name,
+      cell: cell,
+      bio: bio
+    }
+   // console.log(obj1);
+
+    arr.push(obj1);
     this.presentLoading();
     const popover = await this.popover.create({
-      component: ViewBookingsPage,
+      component: ViewUsersPage,
       componentProps: {
         custom_id : this.value
       },
     
     });
+   
      popover.present();
   }
  gotorooms(pic, hotel,name,loc,size, feat,price,descr,key){
@@ -135,20 +146,22 @@ Key;
   this.Description = descr;
   this.Key = key;
 
+  
   this.refUser.child('bookings').orderByChild('Room').equalTo(name).on('value', resp =>{
    this.bookedBy = snapshotToArray(resp); 
      
   })
   
   }
-  userDetails(pic,name,cell,bio){
-    this.RoomArry=[];
-    this.Profile_pic = pic;
-    this.Fullname = name;
-    this.Cellphone = cell;
-    this.Bio = bio;
+  // userDetails(pic,name,cell,bio){
+  //  //this.RoomArry=[];
+  //   this.Profile_pic = pic;
+  //   this.Fullname = name;
+  //   this.Cellphone = cell;
+  //   this.Bio = bio;
+    
   
-  }
+  // }
   logout(){
     this.presentLoading();
     firebase.auth().signOut().then(() => {
@@ -162,6 +175,7 @@ Key;
   allUsers(item){
     this.RoomArry=[];
      this.UserArry = item;
+ 
   }
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -175,3 +189,6 @@ Key;
     //console.log('Loading dismissed!');
   }
 }
+var arr = new Array()
+
+export default arr ;

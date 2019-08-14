@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
-import { snapshotToArray } from '../environment';
+import arry from '../home/home.page';
 
 @Component({
   selector: 'app-view-users',
@@ -8,24 +7,16 @@ import { snapshotToArray } from '../environment';
   styleUrls: ['./view-users.page.scss'],
 })
 export class ViewUsersPage implements OnInit {
-  //pic : any;
-  //room = {} as room;
-  rooms;
-  users;
-   //selectedFile = null;
- 
- // ref = firebase.database().ref('rooms/');
-  //storageRef = firebase.storage().ref();
-  ref2 = firebase.database().ref('users/');
-
+  d = arry ;
+  pic;
+  name;
+  bio;
+  cell;
   constructor() {
-      this.ref2.on('value', resp => {
-        this.users = snapshotToArray(resp);
-          console.log(resp.val());
-
-        })
-
-
+  this.pic = this.d[0].pic;
+  this.name = this.d[0].name;
+  this.cell = this.d[0].cell;
+  this.bio = this.d[0].bio;
    }
   ngOnInit() {
   }
